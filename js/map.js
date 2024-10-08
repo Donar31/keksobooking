@@ -1,6 +1,6 @@
 import { activateForm } from './form.js';
 import { activateFilters } from './filters.js';
-import { ZOOM, CENTER_TOKYO, MARKER_ICON } from './const.js';
+import { ZOOM, CENTER_TOKYO, MARKER_ICON, MIN_MARKER_ICON } from './const.js';
 
 const LeafletParameters = {
   TILE_LAYER: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -10,24 +10,36 @@ const LeafletParameters = {
 const map = L.map('map-canvas');
 const getMap = () => {
   map.on('load', () => {
-    activateForm(),
+    activateForm();
     activateFilters();
-})
+  })
     .setView(CENTER_TOKYO, ZOOM);
   L.tileLayer(
     LeafletParameters.TILE_LAYER, {
-      attribution: LeafletParameters.ATTRIBUTION,
-    },
+    attribution: LeafletParameters.ATTRIBUTION,
+  },
   ).addTo(map);
 };
 
-const marker = L.marker (
+const marker = L.marker(
   CENTER_TOKYO, {
-    draggable: true,
-    icon: MARKER_ICON
-  }
+  draggable: true,
+  icon: MARKER_ICON
+}
 );
 
 marker.addTo(map);
+
+const markerCoordinates = () => marker.on('moveend', (evt) => {
+  const newCoordinates = evt.target.getLatLng();
+});
+
+const markerGroup = L.layerGroup().addTo(map);
+
+markerGroup.clearLayers();
+
+const resetMarker = () => {
+  map.setView(CENTER_TOKYO, ZOOM);
+};
 
 export { getMap };

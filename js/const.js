@@ -23,6 +23,16 @@ const MIN_MARKER_ICON = L.icon({
   iconAnchor: [20, 40]
 });
 
+const TYPES_OF_HOUSING = {
+  'flat': 'Квартира',
+  'bungalow': 'Бунгало',
+  'house': 'Дом',
+  'palace': 'Дворец',
+  'hotel': 'Отель',
+};
+
+const MAX_MARKER = 10;
+
 export {
   GET_URL,
   POST_URL,
@@ -30,5 +40,7 @@ export {
   CENTER_TOKYO,
   IMG_DEFAULT,
   MARKER_ICON,
-  MIN_MARKER_ICON
+  MIN_MARKER_ICON,
+  TYPES_OF_HOUSING,
+  MAX_MARKER
 };

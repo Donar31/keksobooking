@@ -27,8 +27,8 @@ const PRICE_FILTER_VALUE = {
 
 const checkType = (data) => filterType.value === data.offer.type || filterType.value === DEFAULT_FILTER;
 const checkPrice = (data) => filterPrice.value === DEFAULT_FILTER || (data.offer.price >= PRICE_FILTER_VALUE[filterPrice.value].start && data.offer.price <= PRICE_FILTER_VALUE[filterPrice.value].end);
-const checkRooms = (data) => filterRooms.value === data.offer.rooms || filterRooms.value === DEFAULT_FILTER;
-const checkGuest = (data) => filterGuest.value === data.offer.guests || filterGuest.value === DEFAULT_FILTER;
+const checkRooms = (data) => +filterRooms.value === data.offer.rooms || filterRooms.value === DEFAULT_FILTER;
+const checkGuest = (data) => +filterGuest.value === data.offer.guests || filterGuest.value === DEFAULT_FILTER;
 // const checkFeatures = (data) =>
 
 const checkAllFilters = (data) => {

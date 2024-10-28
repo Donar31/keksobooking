@@ -7,7 +7,7 @@ const filterType = mapFilters.querySelector('#housing-type');
 const filterPrice = mapFilters.querySelector('#housing-price');
 const filterRooms = mapFilters.querySelector('#housing-rooms');
 const filterGuest = mapFilters.querySelector('#housing-guests');
-const filterFeatures = mapFilters.querySelectorAll('#housing-features');
+// const filterFeatures = mapFilters.querySelectorAll('#housing-features');
 
 const DEFAULT_FILTER = 'any';
 const PRICE_FILTER_VALUE = {
@@ -29,7 +29,16 @@ const checkType = (data) => filterType.value === data.offer.type || filterType.v
 const checkPrice = (data) => filterPrice.value === DEFAULT_FILTER || (data.offer.price >= PRICE_FILTER_VALUE[filterPrice.value].start && data.offer.price <= PRICE_FILTER_VALUE[filterPrice.value].end);
 const checkRooms = (data) => +filterRooms.value === data.offer.rooms || filterRooms.value === DEFAULT_FILTER;
 const checkGuest = (data) => +filterGuest.value === data.offer.guests || filterGuest.value === DEFAULT_FILTER;
-// const checkFeatures = (data) =>
+
+const checkFeatures = (data) => {
+  const filtersFeatures = [];
+  const checkedFilters = mapFilters.querySelectorAll('input:checked');
+  checkedFilters.forEach((elem) => filtersFeatures.push(elem.value));
+  if (data.offer.features){
+    return filtersFeatures.every((feature) => data.offer.features.includes(feature));
+  }
+  return false;
+};
 
 const checkAllFilters = (data) => {
   const localData = [];
@@ -39,7 +48,8 @@ const checkAllFilters = (data) => {
       checkType(elem) &&
       checkPrice(elem) &&
       checkRooms(elem) &&
-      checkGuest(elem)
+      checkGuest(elem) &&
+      checkFeatures(elem)
     ) {
       localData.push(elem);
       renderMarkers(localData);

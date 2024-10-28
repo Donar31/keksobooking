@@ -1,9 +1,9 @@
-const errorBlock = document.querySelector('#error').content.querySelector('.error');
+const errorBlock = document.querySelector('#data-error').content.querySelector('.data-error');
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const showAlert = (message, time = 5000) => {
   const alertContainer = errorBlock.cloneNode(true);
-  alertContainer.querySelector('.error__message').textContent = message;
+  alertContainer.querySelector('.data-error__title').textContent = message;
 
   document.body.append(alertContainer);
 

@@ -33,6 +33,17 @@ const TYPES_OF_HOUSING = {
 
 const MAX_MARKER = 10;
 
+const TYPE_PRICE = {
+  flat: 1000,
+  bungalow: 0,
+  house: 5000,
+  palace: 10000,
+  hotel: 3000
+};
+
+const MAX_ROOMS = 100;
+const MIN_ROOMS = 0;
+
 export {
   GET_URL,
   POST_URL,
@@ -42,5 +53,8 @@ export {
   MARKER_ICON,
   MIN_MARKER_ICON,
   TYPES_OF_HOUSING,
-  MAX_MARKER
+  MAX_MARKER,
+  TYPE_PRICE,
+  MAX_ROOMS,
+  MIN_ROOMS
 };

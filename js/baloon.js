@@ -2,30 +2,6 @@ import { TYPES_OF_HOUSING } from './const.js';
 
 const template = document.querySelector('#card').content.querySelector('.popup');
 
-// const getRooms = (roomCount) => {
-//   switch (roomCount) {
-//     case 1:
-//       return 'комната';
-//     case 2:
-//     case 3:
-//     case 4:
-//       return 'комнаты';
-//     default:
-//       return 'комнат';
-//   }
-// };
-
-// const getGuests = (count) => {
-//   if (count === 0) {
-//     return 'не для гостей';
-//   }
-//   if (count > 1) {
-//     return `для ${count} гостей`;
-//   }
-//   return `для ${count} гостя`;
-// };
-
-
 const numWordGuest = (value) => {
   const wordsGuests = [`для ${value} гостя`, `для ${value} гостей`, 'не для гостей'];
   value = Math.abs(value) % 100;

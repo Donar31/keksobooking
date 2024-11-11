@@ -56,9 +56,21 @@ const renderMarkers = (data) => {
 };
 
 const resetMarker = () => {
+  marker.setLatLng(CENTER_TOKYO, ZOOM);
+};
+
+const resetMap = () => {
   map.setView(CENTER_TOKYO, ZOOM);
 };
 
 const clearMarkers = () => markerGroup.clearLayers();
 
-export { getMap, renderMarkers, clearMarkers };
+function updateCoordinates() {
+  const lat = marker.getLatLng().lat;
+  const lng = marker.getLatLng().lng;
+  document.getElementById('address').value = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+}
+
+marker.on('drag', updateCoordinates);
+
+export { getMap, renderMarkers, clearMarkers, resetMarker, resetMap };

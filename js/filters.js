@@ -7,7 +7,6 @@ const filterType = mapFilters.querySelector('#housing-type');
 const filterPrice = mapFilters.querySelector('#housing-price');
 const filterRooms = mapFilters.querySelector('#housing-rooms');
 const filterGuest = mapFilters.querySelector('#housing-guests');
-// const filterFeatures = mapFilters.querySelectorAll('#housing-features');
 
 const DEFAULT_FILTER = 'any';
 const PRICE_FILTER_VALUE = {

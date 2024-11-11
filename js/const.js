@@ -23,22 +23,30 @@ const MIN_MARKER_ICON = L.icon({
   iconAnchor: [20, 40]
 });
 
+const TYPES_KEYS = {
+  flat: 'flat',
+  bungalow: 'bungalow',
+  house: 'house',
+  palace: 'palace',
+  hotel: 'hotel'
+};
+
 const TYPES_OF_HOUSING = {
-  'flat': 'Квартира',
-  'bungalow': 'Бунгало',
-  'house': 'Дом',
-  'palace': 'Дворец',
-  'hotel': 'Отель',
+  [TYPES_KEYS.flat]: 'Квартира',
+  [TYPES_KEYS.bungalow]: 'Бунгало',
+  [TYPES_KEYS.house]: 'Дом',
+  [TYPES_KEYS.palace]: 'Дворец',
+  [TYPES_KEYS.hotel]: 'Отель'
 };
 
 const MAX_MARKER = 10;
 
 const TYPE_PRICE = {
-  flat: 1000,
-  bungalow: 0,
-  house: 5000,
-  palace: 10000,
-  hotel: 3000
+  [TYPES_KEYS.flat]: 1000,
+  [TYPES_KEYS.bungalow]: 0,
+  [TYPES_KEYS.house]: 5000,
+  [TYPES_KEYS.palace]: 10000,
+  [TYPES_KEYS.hotel]: 3000
 };
 
 const MAX_ROOMS = 100;

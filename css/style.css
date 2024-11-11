@@ -1059,4 +1059,5 @@ fieldset {
   font-size: 20px;
   text-align: center;
   background-color: #fd4d4b;
+  z-index: 1000;
 }
